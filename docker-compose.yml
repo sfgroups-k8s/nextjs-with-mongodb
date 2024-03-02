@@ -1,0 +1,13 @@
+version: '3.8' # Specify the Compose file version (v3.8 used here)
+
+services:
+  mongodb:
+    image: mongo:7.0-jammy # Use the latest official MongoDB image
+    restart: always # Restart container automatically on failure
+    ports:
+      - "27017:27017" # Map host port 27017 to container port 27017 (MongoDB port)
+    volumes:
+      - mongodb-data:/data/db # Persist data in a named volume
+
+volumes:
+  mongodb-data: # Define the named volume for persistent data
